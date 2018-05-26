@@ -14,7 +14,7 @@
             </li>
             <li>
                 <a data-ripple="false" class="app_list__tile app_list__tile--link">
-                    <div class="app_list__tile__action"><i aria-hidden="true" class="material-icons icon">settings</i></div>
+                    <div class="app_list__tile__action"><i aria-hidden="true" class="fa fa-cog fa-2"></i></div>
                     <div class="">
                         <div class="">
                             <router-link :to="{ name: 'settings-view' }">{{$t("Settings" , { defaultValue: 'Settings'})}}</router-link>

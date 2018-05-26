@@ -13,6 +13,8 @@ import bootstrapSelect from "bootstrap-select/dist/js/bootstrap-select.js";
 //import styles
 import "./styles/main.scss";
 import "bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+import 'font-awesome/scss/font-awesome.scss';
+
 
 Vue.use(VueResource);
 Vue.use(VueI18Next); //https://github.com/panter/vue-i18next
