@@ -22,7 +22,14 @@
     </div>
 </template>
 <script>
+import { setCookie,getCookie }  from '../../../utility/helper';
 export default {
+	created(){
+		if(getCookie('isValidUsertest') === "true")
+		{
+			this.$router.push({name:'reports-view'})
+		}
+	},
   methods: {
     validateLoginFields() {
       if (!this.loginDetails.username || !this.loginDetails.password) {
@@ -36,6 +43,7 @@ export default {
           .dispatch("validateUser", this.loginDetails)
           .then(data => {
             if (data.isValidUser) {
+			setCookie('isValidUsertest','true',1)
               this.$router.push({
                 name: "home"
               });
