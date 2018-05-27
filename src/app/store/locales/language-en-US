@@ -1,6 +1,8 @@
 export default {
     Reports:'Reports',
     Settings: 'Settings',
-    Employee: 'Employee'
-
+    Employee: 'Employee',
+	CancelText: 'Cancel',
+	SaveText: 'Save',
+	CreateNewEmployee: 'Create New Employee',
 }
