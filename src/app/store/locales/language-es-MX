@@ -2,4 +2,6 @@ export default {
     Reports:'Reports*',
     Settings: 'Settings*',
     Employee: 'Employee*',
+	LoadingText: 'Loading...*',
+	Logout: 'Logout*',
 }

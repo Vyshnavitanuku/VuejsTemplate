@@ -10,9 +10,8 @@
             <label for="psw" class="control-label"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" v-model="loginDetails.password">
               </div>
-                      <label>
-        </label>
-            <button class="loginbutton" @click="login">Login</button>
+			<loading-icon v-if="isLoading"></loading-icon>
+            <button v-else class="loginbutton" @click="login">Login</button>
 
         </div>
         <div style="background-color:#f1f1f1">
@@ -22,8 +21,10 @@
     </div>
 </template>
 <script>
+import loadingIcon from '../../_components/loadingIcon.vue'
 import { setCookie,getCookie }  from '../../../utility/helper';
 export default {
+components:{loadingIcon},
 	created(){
 		if(getCookie('isValidUsertest') === "true")
 		{
@@ -39,9 +40,11 @@ export default {
     },
     login() {
       if (this.validateLoginFields()) {
+	  	this.isLoading = true;
         this.$store
           .dispatch("validateUser", this.loginDetails)
           .then(data => {
+		  this.isLoading = false;
             if (data.isValidUser) {
 			setCookie('isValidUsertest','true',1)
               this.$router.push({
@@ -52,6 +55,7 @@ export default {
             }
           })
           .catch(err => {
+			this.isLoading = false;
             alert(err);
           });
       }
@@ -61,8 +65,9 @@ export default {
     return {
       loginDetails: {
         username: "",
-        password: ""
-      }
+        password: "",
+      },
+	  isLoading: false,
     };
   }
 };

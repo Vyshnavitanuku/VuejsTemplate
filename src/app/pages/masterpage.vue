@@ -22,6 +22,13 @@ import headerbar from "./header";
 import sidebar from "./sidebar";
 import { setCookie,getCookie }  from '../utility/helper';
 export default {
+	created(){
+		if(getCookie('isValidUsertest') !== "true")
+		{
+
+			this.$router.push({name:'login'})
+		}
+	},
 	watch:{
 		$route (to, from){
 			if(getCookie('isValidUsertest') !== "true")

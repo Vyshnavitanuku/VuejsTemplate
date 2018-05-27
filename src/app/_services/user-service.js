@@ -3,7 +3,7 @@ import { vuePost } from '../utility/helper'
 
 export const loginService = async (loginDetails) => {
   return new Promise((resolve, reject) => {
-    resolve(true);
+	setTimeout(() => resolve(true), 5000)
     //vuePost(authEndpoint, loginDetails, { emulateJSON: true }).then(data => 
     //{debugger;
     //resolve(data)}).catch(err => {
